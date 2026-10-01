@@ -232,10 +232,6 @@
         _bookmarks_nav_controller,
         _profile_nav_controller
     ]];
-
-    if (@available(iOS 18.0, *)) {
-        self.preferredPlacement = UITabBarControllerPlacementBottom;
-    }
 }
 
 -(void)setupLayout {

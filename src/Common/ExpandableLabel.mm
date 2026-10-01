@@ -1,5 +1,5 @@
 //
-//  ExpandableLabel.m
+//  ExpandableLabel.mm
 //  AniAnglia
 //
 //  Created by Toilettrauma on 18.04.2025.
