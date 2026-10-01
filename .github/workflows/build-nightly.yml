@@ -43,6 +43,7 @@ jobs:
           cmake -G Xcode \
           -B build \
           -DCMAKE_SYSTEM_NAME=iOS \
+          -DCMAKE_CXX_STANDARD=17 \
           -DVER_SHORT="${{ steps.version.outputs.final_version }}" \
           -DVER_BUILD="${{ github.event.inputs.version_build }}" \
           -DBUNDLE_ID="delta.cion.anisaturnbeta"
