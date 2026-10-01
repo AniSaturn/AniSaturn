@@ -162,13 +162,20 @@
     return self;
 }
 
--(void)viewDidLoad {
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (@available(iOS 18.0, *)) {
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            self.traitOverrides.horizontalSizeClass = UIUserInterfaceSizeClassCompact;
+        }
+    }
     
     [self setup];
     [self setupTabs];
     [self setupLayout];
 }
+
 -(void)setup {
     _main_filter_bar_button = [[UIBarButtonItem alloc] initWithPrimaryAction:[UIAction actionWithTitle:@"" image:[UIImage systemImageNamed:@"slider.horizontal.3"] identifier:nil handler:^(UIAction* action) {
         [self onMainFilterBarButtonPressed];
@@ -225,6 +232,10 @@
         _bookmarks_nav_controller,
         _profile_nav_controller
     ]];
+
+    if (@available(iOS 18.0, *)) {
+        self.preferredPlacement = UITabBarControllerPlacementBottom;
+    }
 }
 
 -(void)setupLayout {
