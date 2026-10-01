@@ -90,7 +90,7 @@ jobs:
             tag_name: nightly
             name: "Nightly build"
             body: |
-              Unstable build of Hysteria.
+              Unstable build of AniSaturn.
               ```txt
               ${{ steps.metadata.outputs.timestamp }}
               ```
