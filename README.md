@@ -9,6 +9,13 @@
   <br> Клиент является форком AniAnglia и активно поддерживается.
 </p>
 
+
+---
+
+<p align="center">
+	<a  target="_blank" href="https://t.me/AnAgTeam">[ НАШ ТГК ]</a>
+</p>
+
 ---
 
 > [!WARNING]  
