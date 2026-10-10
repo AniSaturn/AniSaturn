@@ -23,6 +23,11 @@ namespace de_anixart::de_kodik::domains {
     inline const std::vector<std::string> kodik_partial = {};
 }
 
+namespace de_anixart::de_sibnet::domains {
+    inline const std::vector<std::string> sibnet_exact = {"sibnet.ru"};
+    inline const std::vector<std::string> sibnet_partial = {};
+}
+
 namespace de_anixart::de_libria::domains {
     inline const std::vector<std::string> libria_exact = {
         "anilibria.tv", "new.anilib.one", 
