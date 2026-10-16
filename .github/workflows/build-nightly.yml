@@ -65,6 +65,11 @@ jobs:
           APP_PATH=$(find build/Release-iphoneos -name "*.app" -type d | head -n 1)
           echo "app_path=$APP_PATH" >> $GITHUB_OUTPUT
 
+      - name: Ad-hoc sign
+        run: |
+          find "${{ steps.locate.outputs.app_path }}" -type f -perm +111 -exec codesign --force --sign - {} \;
+          codesign --force --sign - "${{ steps.locate.outputs.app_path }}"
+
       - name: Package IPA
         run: |
           mkdir -p Payload
