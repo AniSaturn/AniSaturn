@@ -55,7 +55,7 @@ jobs:
             -configuration Release \
             -sdk iphoneos \
             -derivedDataPath build_derived \
-            CODE_SIGNING_ALLOWED=YES \
+            CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             PRODUCT_BUNDLE_IDENTIFIER="delta.cion.anisaturnbeta"
 
@@ -67,9 +67,13 @@ jobs:
 
       - name: Ad-hoc sign
         run: |
-          find "${{ steps.locate.outputs.app_path }}" -type f -perm +111 -exec codesign --force --sign - {} \;
-          codesign --force --sign - "${{ steps.locate.outputs.app_path }}"
-
+          run: |
+            APP_PATH="${{ steps.locate.outputs.app_path }}"
+            find "$APP_PATH" -type f \( -perm +111 -o -name "*.dylib" \) -exec codesign --force --sign - {} \;
+            find "$APP_PATH/Frameworks" -type d -name "*.framework" -exec codesign --force --sign - {} \; 2>/dev/null || true
+            codesign --force --sign - "$APP_PATH"
+            codesign -dv "$APP_PATH"
+                
       - name: Package IPA
         run: |
           mkdir -p Payload
