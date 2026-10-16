@@ -55,7 +55,7 @@ jobs:
             -configuration Release \
             -sdk iphoneos \
             -derivedDataPath build_derived \
-            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_ALLOWED=YES \
             CODE_SIGNING_REQUIRED=NO \
             PRODUCT_BUNDLE_IDENTIFIER="delta.cion.anisaturnbeta"
 
